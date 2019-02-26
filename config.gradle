@@ -1,0 +1,38 @@
+def retorfit2 = "2.1.0"
+def gson = "2.1.0"
+def rxjava_adapter = "2.1.0"
+def rxandroid = "2.0.1"
+def rxjava = "2.1.0"
+def eventbus = "3.1.1"
+ext {
+    android = [
+            compileSdkVersion      : 28,
+            buildToolsVersion      : "28.0.0",
+            applicationId          : "com.cxf.rxjavaandretorfittest",
+            minSdkVersion          : 23,
+            targetSdkVersion       : 28,
+            versionCode            : 1,
+            versionName            : "1.0"
+    ]
+    //因为support库都是同一个版本，单独拎出来，方便修改
+    dependVersion = [
+            support: "28.0.0-alpha3"
+    ]
+
+    dependencies = [
+            // android-support
+            "support-v4"            : "com.android.support:support-v4:${dependVersion.support}",
+            "appcompat-v7"          : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "design"                : "com.android.support:design:${dependVersion.support}",
+            "recyclerview"          : "com.android.support:recyclerview-v7:${dependVersion.support}",
+            "cardview"              : "com.android.support:cardview-v7:${dependVersion.support}",
+
+            "retorfit2"             : "com.squareup.retrofit2:retrofit:${retorfit2}",
+            "gson"                  : "com.squareup.retrofit2:converter-gson:${gson}",
+            //Rxjava and Retrofit（Retrofit+Rx需要添加的依赖）
+            "rxjava_adapter"        : "com.squareup.retrofit2:adapter-rxjava:${rxjava_adapter}",
+            "rxandroid"             : "io.reactivex.rxjava2:rxandroid:${rxandroid}",
+            "rxjava"                : "io.reactivex.rxjava2:rxjava:${rxjava}",
+            "eventbus"              : "org.greenrobot:eventbus:${eventbus}"
+    ]
+}
